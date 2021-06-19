@@ -102,6 +102,23 @@ echo "<br />";
 echo $new_animal->animal_name . "<br />";
 echo $new_animal->favourite_food . "<br />";
 echo $new_animal->sound . "<br />";
+echo $new_animal->run();
+
+echo "<br />";
+echo "<br />";
+
+$new_dog = new Dog();
+
+$new_dog->__set("name", "Fido");
+$new_dog->__set("favourite_food", "Pedigree Chum");
+$new_dog->__set("sound", "Barks like a mad dog");
+echo "Total animals = " . Animal::$number_of_animals . "<br />";
+
+echo $new_dog->animal_name . "<br />";
+echo $new_dog->favourite_food . "<br />";
+echo $new_dog->sound . "<br />";
+echo $new_dog->run();
+
 
 
 

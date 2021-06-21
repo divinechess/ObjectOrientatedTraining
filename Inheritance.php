@@ -48,15 +48,19 @@ echo $obj->getConstant();*/
 
 
 class Person {
-    public $name = 'john';
+    public $name;
     protected $age;
     private $phone;
 
-    public function __contruct($name, $age, $phone){
+    public function __construct($name, $age, $phone){
         $this->name = $name;
         $this->age = $age;
-        $age->phone = $phone;
+        $this->phone = $phone;
 
+    }
+
+    public function Hello(){
+    echo "Hello from person";
 
     }
 
@@ -65,16 +69,44 @@ class Person {
 class Employee  extends Person {
     private $salary;
 
-    public function __contruct($name, $age, $phone,$salary ){
-        parent::__construc($name, $age, $phone);
-        $this->$salary = $salary;
+    public function __construct($name, $age, $phone,$salary ){
+        $this->salary = $salary;
+        parent::__construct($name, $age, $phone);
 
 
     }
 
+    public function Hello(){
+        echo "Hello from employee: $this->name "  . " my age is:  $this->age" . " My salary is: $this->salary";
+
+    }
+
+
+
+}
+
+class Student extends Person {
+
+    public $studentId;
+
+    public function __construct($name, $age, $phone,$studentId ){
+        parent::__construct($name, $age, $phone);
+        $this->studentId = $studentId;
+
+    }
+
+    public function Hello(){
+        return  "Hello from student: $this->name "  . "my age is: $this->age " . "my student ID is:  $this->studentId";
+
+    }
+
+
+
 }
 
 
-$person = new Person();
-echo $person->name = 'Tim';
-
+$employee = new Employee($name = 'Methuselah',$age = '969', $phone = '01913841221',$salary = '20000' );
+echo $employee->Hello();
+echo "<br />";
+$Student = new Student($name = 'Tim dim',$age = '19', $phone = '123456', $studentId = '9999');
+echo $Student->Hello();

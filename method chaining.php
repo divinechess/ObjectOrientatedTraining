@@ -4,6 +4,7 @@ class Signup {
 
     private $data = array();
     private $filename = '';
+
     public function sanitise($data){
         foreach ($data as $key => $value){
             $data[$key] = $data;
@@ -34,6 +35,7 @@ class Signup {
         return $this;  // return class a second time for method chain
 
     }
+
 
     public function read (){
         $data = file_get_contents($this->filename);
